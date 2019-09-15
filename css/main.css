@@ -1,0 +1,446 @@
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--light);
+    font-family: var(--font-family-sans-serif);
+    padding-top: 3.4rem;
+    color: var(--gray-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+#map {
+    width: 90%;
+    height: 60vh;
+    margin: 0 auto 1rem;
+}
+
+.address {
+    padding: .625rem 0;
+}
+
+.address-title {
+    font-weight: bold !important;
+}
+
+.address-data {
+    font-size: 1.25rem;
+}
+
+.address-data a {
+    color: var(--gray-dark);
+    font-weight: bold;
+}
+
+.divider {
+    margin: 1rem 0;
+    border: none;
+    background: var(--gray);
+    padding: 1px;
+}
+
+.avatar-big {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    position: center center;
+    border-radius: 50%;
+    background: var(--light);
+    border: solid .3125rem #f8f9fa;
+    z-index: inherit;
+    margin: -6rem auto 0rem;
+}
+
+.avatar-follow {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border: solid 1px var(--white);
+    border-radius: 50%;
+    margin: 0 .2rem .2rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+.bg-none {
+    background: none !important;
+}
+
+.flag {
+    width: 1.25rem;
+    height: 1rem;
+}
+
+.shadow {
+    box-shadow: 2px 8px 8px rgba(0,0,0, 0.4);
+}
+
+.form {
+    padding: .625rem 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.form .form-input {
+    width: 100%;
+    border: solid 1px var(--gray);
+    border-radius: 3px;
+    padding: .625rem;
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.menu {
+    background: var(--primary);
+    color: var(--white);
+    padding: .33rem 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.menu .container-buttons-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu .container-buttons-menu button {
+    font-size: 1.25rem;
+    color: var(--white);
+    padding: .625rem 1.25rem;
+    border: 1px solid transparent;
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+}
+
+.menu .container-buttons-menu button:hover {
+    border: 1px solid rgba(255,255,255, 0.4);
+}
+
+.menu .container-buttons-menu .btn-menu-cerrar {
+    display: none;
+}
+
+.menu .container-buttons-menu .btn-menu-cerrar.activo {
+    display: inline-block;
+}
+
+.menu .container-enlaces-nav {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    background: var(--primary);
+    height: 100vh;
+    width: 80%;
+    z-index: 3000;
+    transition: .3s ease all;
+    transform: translateX(-100%);
+}
+
+.menu .container-enlaces-nav.activo {
+    transform: translateX(0);
+}
+
+.menu .btn-departamentos {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu .btn-departamentos {
+    color: var(--white);
+    padding: 0.4375rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid transparent;
+    font-size: .75rem;
+    cursor: default;
+}
+
+.menu .btn-departamentos i {
+    position: static;
+    margin-left: 1.25rem;
+    transform: rotate(-90deg)
+}
+
+.menu .btn-departamentos:hover {
+    border: 1px solid rgba(255,255,255, 0.4);
+}
+
+.menu .btn-departamentos span {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.menu .container-enlaces-nav .enlaces a {
+    color: var(--white);
+    border: 1px solid transparent;
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+}
+
+.menu .container-enlaces-nav .enlaces a:hover {
+    border: 1px solid rgba(255,255,255, 0.4);
+}
+
+.menu .enlaces {
+    width: 100%;
+}
+
+.menu .enlaces a {
+    display: block;
+    margin: .625rem 0;
+    padding: .625rem;
+}
+
+.skyscraper {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.skyscraper .skyscraper-image {
+    width: 100%;
+    height: 50vh;
+    background: var(--yellow);
+    margin-bottom: 1rem;
+}
+
+.skyscraper .skyscraper-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: center center;
+}
+
+.skyscraper .skyscraper-info {
+    padding: .625rem 1.25rem;
+}
+
+.skyscraper .skyscraper-info h1 {
+    padding-bottom: 1.25rem;
+}
+
+.skyscraper .skyscraper-info p {
+    text-align: left;
+}
+
+.main {
+    min-height: 50vh;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "left mainBody mainBody right"
+}
+
+.main .left {
+    grid-area: left;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.main .mainBody {
+    grid-area: mainBody;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.main .right {
+    grid-area: right;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.card {
+    width: 100%;
+    background: var(--white);
+    margin-bottom: 1.25rem;
+}
+
+.card .card-header {
+    width: 100%;
+    padding: .625rem 1.25rem;
+    margin-bottom: .625rem;
+    overflow: auto;
+}
+
+.card .card-header .card-header-avatar {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+}
+
+.card .card-header .card-header-avatar .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: center center;
+    border-radius: 50%;
+    background: var(--light);
+}
+
+.card .card-header .card-header-description {
+    margin-top: -3rem;
+    margin-left: 4rem;
+}
+
+.card .card-header .card-header-description h2 {
+    font-size: 1.25rem;
+}
+
+.card .card-header .card-header-description h5 {
+    font-size: 1rem;
+}
+
+.card .card-header .card-header-description h5 a {
+    color: var(--gray-dark);
+}
+
+.card .card-header .card-header-description p {
+    color: var(--gray);
+    padding-bottom: .5rem;
+}
+
+.card-image,
+.card-video {
+    width: 100%;
+    height: 267px;
+}
+
+.card-image {
+    background: var(--white);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: center center;
+    border: solid 1px var(--light);
+}
+
+.card-video {
+    background: var(--light);
+}
+
+.card-text {
+    width: 100%;
+    padding: .625rem 1.25rem;
+}
+
+.comment-display {
+    padding: 1rem 0;
+    background: var(--light);
+}
+
+.card-footer {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer .card-footer-social {
+    padding: 1.25rem;
+    color: var(--gray);
+}
+
+.footer {
+    width: 100%;
+    min-height: 3rem;
+    padding: .75rem 1rem;
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.footer .enlaces-footer {
+    text-align: center;
+}
+
+.footer .enlaces-footer a {
+    color: var(--gray);
+    display: block;
+    padding: .5rem;
+}
+
+.footer .enlaces-footer span {
+    font-weight: bold;
+    margin: 1rem;
+}
+
+/* ------------------------------ */
+/* Puntos de quiebre */
+/* ------------------------------ */
+
+@media (min-width: 576px) {
+    
+}
+
+@media (min-width: 768px) {
+    
+}
+
+@media (min-width: 992px) {
+    
+}
+
+@media (min-width: 1200px) {
+    
+}

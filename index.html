@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CiudadBusca</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dbszizqh4/image/upload/v1562473096/favicon_default.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+</head>
+<body>
+
+    <nav class="menu" id="menu">
+        <div class="container container-buttons-menu">
+            <button id="btn-menu-barras" class="btn-menu-barras"><i class="fas fa-bars"></i></button>
+            <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="container container-enlaces-nav">
+            <div class="btn-departamentos" id="btn-departamentos">
+                <p>Todos los <span>Departamentos</span></p>
+                <i class="fas fa-caret-down"></i>
+            </div>
+    
+            <div class="enlaces">
+                <a href="/muro/">Muro</a>
+                <a href="/mensajes/">Mensajes</a>
+                <a href="/menciones/">Menciones</a>
+                <a href="/salir/">Salir</a>
+                <a href="/registro/">Registro</a>
+                <a href="/entrar/">Entrar</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="app">
+
+        <skyscraper
+            v-bind:sky="item"
+        ></skyscraper>
+
+        <section id="left" class="section left">
+
+            <presentations
+                v-bind:sky="item"
+                v-bind:presentation="item"
+            ></presentations>
+
+            <div class="card bg-none p-3">
+                <followers
+                    v-for="item in item._followers"
+                    v-bind:follow="item"
+                    v-bind:key="item._id"
+                ></followers>
+            </div>
+
+        </section>
+
+        <main id="main" class="main container">
+            <section id="mainBody" class="section mainBody">
+                <posts
+                    v-for="item in item.posts"
+                    v-bind:post="item"
+                    v-bind:key="item._id"
+                ></posts>
+            </section>
+
+            <section id="right" class="section right">
+            </section>
+
+        </main>
+
+    </div>
+
+    <main id="main" class="main container" hidden>
+        <section id="left" class="section left">
+
+            <!-- <div class="card">
+                <div class="card-header">
+                    <h4>Presentación</h4>
+                    <address>
+                        <p class="address">
+                            <div class="address-title">Dirección</div>
+                            <div class="address-data">
+                                Avenida Caracas No. 72-25<br>Chapinero
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Teléfono</div>
+                            <div class="address-data">
+                                57 1 555 1234
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Móvil</div>
+                            <div class="address-data">
+                                57 300 123 4567
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Web</div>
+                            <div class="address-data">
+                                <a href="#" target="_blank">www.mipaginaweb.com</a>
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Dirección</div>
+                            <div class="address-data">
+                                Avenida Caracas No. 72-25
+                            </div>
+                        </p>
+                        <hr class="divider">
+                        <p class="address">
+                            <div class="address-data">
+                                Bogotá, Distrito Capital
+                            </div>
+                            <div class="address-title"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562476222/flags/co.png" alt="Colombia" class="flag"> Colombia</div>
+                        </p>
+                    </address>
+                </div>
+                <div class="card-body"></div>
+                <div class="card-footer"></div>
+            </div> -->
+
+        </section>
+        <section id="mainBody" class="section mainBody">
+
+            <!-- <div id='map'></div> -->
+
+        </section>
+        <section id="right" class="section right">
+            <div class="card bg-none">
+                <div class="card-header"></div>
+                <div class="card-body"></div>
+                <div class="card-footer"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="enlaces-footer">
+                <a href="/nosotros/">Nosotros</a>
+                <a href="/desarrollo/">Desarrollo</a>
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/cookies/">Cookies</a>
+                <a href="/ayuda/">Ayuda</a>
+                <span>CiudadBusca &copy;</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        Vue.component('skyscraper', {
+            props: ['sky'],
+            template: `<section id="skyscraper" class="skyscraper">
+                <div v-if="sky._extras.image" class="skyscraper-image">
+                    <img :src="sky._extras.image" :alt="sky.title">
+                </div>
+                <div v-if="!sky._extras.image" class="skyscraper-image">
+                    <img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562472720/default.jpg" :alt="sky.title">
+                </div>
+                <img v-if="sky.image" :src="sky.image" :alt="sky.slug" class="avatar-big">
+                <img v-if="!sky.image" src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562473096/logo_default.png" :alt="sky.slug" class="avatar-big">
+                <div class="skyscraper-info">
+                    <h1>{{ sky.title }}</h1>
+                    <p>{{ sky.description }}</p>
+                    <div class="card-footer">
+                        <div class="card-footer-social"><i class="fas fa-clipboard"></i> {{ sky.posts.length }}</div>
+                        <div class="card-footer-social"><i class="fas fa-user-friends"></i> {{ sky._followers.length }}</div>
+                        <div class="card-footer-social"><i class="fas fa-eye"></i> {{ sky.views }}</div>
+                    </div>
+                </div>
+            </section>`
+        })
+
+        Vue.component('posts', {
+            props: ['post'],
+            template: `<div class="card shadow">
+                <div class="card-header">
+                    <div v-if="post.pageId.image" class="card-header-avatar">
+                        <img :src="post.pageId.image" :alt="post.pageId.text" class="avatar">
+                    </div>
+                    <div class="card-header-description">
+                        <h2>{{ post.pageId.title }}</h2>
+                        <p>@{{ post.pageId.slug }}<br/><i class="far fa-clock"></i> {{ post.createdAt }}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div v-if="post.image" class="card-image"><img :src="post.image" :alt="post.text"></div>
+                    <div v-if="post.video" class="card-video"><iframe width="100%" height="100%" :src="'https://www.youtube.com/embed/' + post.video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div v-if="post.text" class="card-text">{{ post.text }}</div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-footer-social"><i class="fas fa-heart"></i> {{ post._likes.length }}</div>
+                    <div class="card-footer-social"><i class="fas fa-comment"></i> {{ post._comments.length }}</div>
+                    <div class="card-footer-social"><i class="fas fa-eye"></i> {{ post.views }}</div>
+                </div>
+
+                <div class="comment-display">
+
+                    <form action="" class="form">
+                        <input type="text" class="form-input" placeholder="Danos tu opinión..." :data-comment="post._id">
+                    </form>
+
+                    <div
+                        v-for="comment in post._comments"
+                        v-bind:comment="post"
+                        v-bind:key="post._comments._id"
+                        class="card mb-3 bg-none"
+                    >
+                        <div class="card-header">
+                            <a :href="'/u/' + comment.userId.username + '/'">
+                                <div class="card-header-avatar">
+                                    <img :src="'https://www.gravatar.com/avatar/' + comment.userId.gravatar + '?s=64&r=pg&d=404'" :alt="'comment.userId.firstName' + comment.userId.lastName" class="avatar">
+                                </div>
+                            </a>
+                            <div class="card-header-description">
+                                <h5><a :href="'/u/' + comment.userId.username + '/'">+{{ comment.userId.firstName }} {{ comment.userId.lastName }}</a></h5>
+                                <p>{{ comment.text }}</p>
+                                <p><i class="far fa-clock"></i> {{ comment.createdAt }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>`
+        })
+
+        Vue.component('followers', {
+            props: ['follow'],
+            template: `<a :href="'/u/' + follow.userId.username"><img :src="'https://www.gravatar.com/avatar/' + follow.userId.gravatar + '?s=64&d=mp'" :alt="'+' + follow.userId.username" :title="'+' + follow.userId.username" class="avatar-follow"></a>`
+        })
+
+        Vue.component('presentations', {
+            props: ['presentation'],
+            template: `<div class="card">
+                <div class="card-header">
+                    <h4>Presentación</h4>
+                    <address>
+                        <p v-if="presentation.address" class="address">
+                            <div v-if="presentation.address" class="address-title">Dirección</div>
+                            <div v-if="presentation.address" class="address-data">
+                                {{ presentation.address }}<br>{{ presentation.town }}
+                            </div>
+                        </p>
+                        <p v-if="presentation.phone" class="address">
+                            <div v-if="presentation.phone" class="address-title">Teléfono</div>
+                            <div v-if="presentation.phone" class="address-data">
+                                {{ presentation.phone }}
+                            </div>
+                        </p>
+                        <p v-if="presentation.mobile" class="address">
+                            <div v-if="presentation.mobile" class="address-title">Móvil</div>
+                            <div v-if="presentation.mobile" class="address-data">
+                                {{ presentation.mobile }}
+                            </div>
+                        </p>
+                        <p v-if="presentation.web" class="address">
+                            <div v-if="presentation.web" class="address-title">Web</div>
+                            <div v-if="presentation.web" class="address-data">
+                                <a :href="presentation.web" target="_blank">{{ presentation.web }}</a>
+                            </div>
+                        </p>
+                        <hr class="divider">
+                        <p class="address">
+                            <div v-if="presentation.city " class="address-data">
+                                <span v-if="presentation.city ">{{ presentation.city }}</span><span v-if="presentation.state ">, {{ presentation.state }}</span>
+                            </div>
+                            <div class="address-title"><img :src="'https://res.cloudinary.com/dbszizqh4/image/upload/v1562476222/flags/' + presentation.countryId.code + '.png'" :alt="presentation.countryId.name" class="flag"> {{ presentation.countryId.name }}</div>
+                        </p>
+                    </address>
+                </div>
+                <div class="card-body"></div>
+                <div class="card-footer"></div>
+            </div>`
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data () {
+                return {
+                    item: null
+                }
+            },
+            mounted() {
+                axios
+                    // .get('https://ciudadbusca-v1.herokuapp.com/api/v1/pages/ollorente')
+                    .get('http://localhost:3001/api/v1/pages/ollorente')
+                    .then(response => (this.item = response.data.data))
+            },
+        })
+
+    </script>
+    <script>
+        var map = L.map('map').fitWorld();
+    
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.streets'
+        }).addTo(map);
+    
+        function onLocationFound(e) {
+            var radius = e.accuracy / 40;
+    
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    
+            L.circle(e.latlng, radius).addTo(map);
+        }
+    
+        function onLocationError(e) {
+            alert(e.message);
+        }
+    
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
+    
+        map.locate({setView: true, maxZoom: 18});
+    </script>
+</body>
+</html>

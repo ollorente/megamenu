@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CiudadBusca</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dbszizqh4/image/upload/v1562473096/favicon_default.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+</head>
+<body>
+
+    <nav class="menu" id="menu">
+        <div class="container container-buttons-menu">
+            <button id="btn-menu-barras" class="btn-menu-barras"><i class="fas fa-bars"></i></button>
+            <button id="btn-menu-cerrar" class="btn-menu-cerrar"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="container container-enlaces-nav">
+            <div class="btn-departamentos" id="btn-departamentos">
+                <p>Todos los <span>Departamentos</span></p>
+                <i class="fas fa-caret-down"></i>
+            </div>
+    
+            <div class="enlaces">
+                <a href="/muro/">Muro</a>
+                <a href="/mensajes/">Mensajes</a>
+                <a href="/menciones/">Menciones</a>
+                <a href="/salir/">Salir</a>
+                <a href="/registro/">Registro</a>
+                <a href="/entrar/">Entrar</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="skyscraper" class="skyscraper">
+        <div class="skyscraper-image">
+            <img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562287046/ollorente/r1q732k9qz9f7rkbkyq7.jpg" alt="Mi Página web">
+        </div>
+        <img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562191186/ollorente/f6tzi4or7mfm4p0iiimw.png" alt="Logo" class="avatar-big">
+        <div class="skyscraper-info">
+            <h1>Mi página web</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa inventore, ad dignissimos velit aperiam vel quisquam necessitatibus, repellendus reprehenderit laudantium maiores rem ut exercitationem voluptatem, est aut tempora! Ullam, quod?</p>
+            <div class="card-footer">
+                <div class="card-footer-social"><i class="fas fa-clipboard"></i> 1</div>
+                <div class="card-footer-social"><i class="fas fa-user-friends"></i> 2</div>
+                <div class="card-footer-social"><i class="fas fa-eye"></i> 3</div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main" class="main container">
+        <section id="left" class="section left">
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Presentación</h4>
+                    <address>
+                        <p class="address">
+                            <div class="address-title">Dirección</div>
+                            <div class="address-data">
+                                Avenida Caracas No. 72-25<br>Chapinero
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Teléfono</div>
+                            <div class="address-data">
+                                57 1 555 1234
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Móvil</div>
+                            <div class="address-data">
+                                57 300 123 4567
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Web</div>
+                            <div class="address-data">
+                                <a href="#" target="_blank">www.mipaginaweb.com</a>
+                            </div>
+                        </p>
+                        <p class="address">
+                            <div class="address-title">Dirección</div>
+                            <div class="address-data">
+                                Avenida Caracas No. 72-25
+                            </div>
+                        </p>
+                        <hr class="divider">
+                        <p class="address">
+                            <div class="address-data">
+                                Bogotá, Distrito Capital
+                            </div>
+                            <div class="address-title"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562476222/flags/co.png" alt="Colombia" class="flag"> Colombia</div>
+                        </p>
+                    </address>
+                </div>
+                <div class="card-body"></div>
+                <div class="card-footer"></div>
+            </div>
+
+            <div class="card bg-none p-3">
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1568257535/admin/a45nirv1kfi5ksozqrum.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1567311241/admin/yhk6sh9vxvvgytxjymkg.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562563401/admin/h4yngfhaoysb253krd6l.png" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562279383/admin/movhmbszggr4460xwh7f.webp" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562278791/admin/q3wqao4qd9hmju1re8rc.png" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562277814/admin/tzdlwg9svk5rqz2h4h1o.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562126299/admin/duc4mebtps10lodxbjzs.png" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562124982/admin/tk6gldesr8dc0ulsjqvr.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562123737/admin/ztr9jq0ezulldvn8vk8m.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562123158/admin/nup2tjfkhfk0iw7kppuk.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562122521/admin/s3zmoibjzdko4khej4zo.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562120782/admin/j6uf5cm94o6yw60wa9ej.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562120090/admin/caqvurdvhpx9lkj4hing.jpg" alt="+Avatar" title="+Avatar" class="avatar-follow"></a>
+            </div>
+
+        </section>
+        <section id="mainBody" class="section mainBody">
+
+            <div id='map'></div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-avatar">
+                        <img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562191186/ollorente/f6tzi4or7mfm4p0iiimw.png" alt="Logo ollorente" class="avatar">
+                    </div>
+                    <div class="card-header-description">
+                        <h2>Mi página web</h2>
+                        <p>@mipaginaweb<br/><i class="far fa-clock"></i> 3 horas</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-image"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562458136/ollorente/posts/miblsocuavql5cuazugb.jpg" alt="Pub Bar"></div>
+                    <div class="card-video"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/scx_rFSJvFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda iure, quia voluptates, quo, ipsum voluptas praesentium veritatis repellat esse cumque. Debitis amet autem laudantium magni totam sunt vitae optio!</div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-footer-social"><i class="fas fa-heart"></i> 1</div>
+                    <div class="card-footer-social"><i class="fas fa-comment"></i> 2</div>
+                    <div class="card-footer-social"><i class="fas fa-eye"></i> 3</div>
+                </div>
+
+                <div class="comment-display">
+
+                    <form action="" class="form">
+                        <input type="text" class="form-input" placeholder="Danos tu opinión..." data-comment="1">
+                    </form>
+
+                    <div class="card mb-3 bg-none">
+                        <div class="card-header">
+                            <div class="card-header-avatar">
+                                <img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1568260856/ollorente/posts/d3m5udzbb45f2i6dhw3f.jpg" alt="Logo CiudadBusca" class="avatar">
+                            </div>
+                            <div class="card-header-description">
+                                <h5><a href="#">+Usuario</a></h5>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla quaerat odio impedit quibusdam debitis enim praesentium ducimus asperiores eos iure id exercitationem officiis voluptatum, sint ipsa sit, dicta facilis saepe.</p>
+                                <p><i class="far fa-clock"></i> 2 horas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <section id="right" class="section right">
+            <div class="card bg-none">
+                <div class="card-header"></div>
+                <div class="card-body"></div>
+                <div class="card-footer"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="enlaces-footer">
+                <a href="/nosotros/">Nosotros</a>
+                <a href="/desarrollo/">Desarrollo</a>
+                <a href="/privacidad/">Privacidad</a>
+                <a href="/cookies/">Cookies</a>
+                <a href="/ayuda/">Ayuda</a>
+                <span>CiudadBusca &copy;</span>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios({
+            method: 'get',
+            url: 'https://ciudadbusca-v1.herokuapp.com/api/v1/pages/ollorente',
+            responseType: 'stream'
+            })
+            .then(function (response) {
+                // response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+                console.log(response.data.data)
+                return item = response.data.data
+            });
+    </script>
+    <script>
+        var map = L.map('map').fitWorld();
+    
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.streets'
+        }).addTo(map);
+    
+        function onLocationFound(e) {
+            var radius = e.accuracy / 40;
+    
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    
+            L.circle(e.latlng, radius).addTo(map);
+        }
+    
+        function onLocationError(e) {
+            alert(e.message);
+        }
+    
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
+    
+        map.locate({setView: true, maxZoom: 18});
+    </script>
+</body>
+</html>
