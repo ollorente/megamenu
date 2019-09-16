@@ -121,7 +121,7 @@ a {
 }
 
 .shadow {
-    box-shadow: 2px 8px 8px rgba(0,0,0, 0.4);
+    box-shadow: 0px 4px 8px rgba(0,0,0, 0.4);
 }
 
 .form {
@@ -384,7 +384,7 @@ a {
     padding: .625rem 1.25rem;
 }
 
-.comment-display {
+.commentDisplay {
     padding: 1rem 0;
     background: var(--light);
 }
@@ -403,10 +403,11 @@ a {
 }
 
 .footer {
+    background: var(--gray);
+    color: var(--white);
     width: 100%;
     min-height: 3rem;
     padding: .75rem 1rem;
-    color: var(--gray);
     font-size: 0.875rem;
 }
 
@@ -415,7 +416,7 @@ a {
 }
 
 .footer .enlaces-footer a {
-    color: var(--gray);
+    color: var(--white);
     display: block;
     padding: .5rem;
 }

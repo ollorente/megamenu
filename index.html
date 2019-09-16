@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+    <style>
+        #mapid { height: 180px; }
+    </style>
 </head>
 <body>
 
@@ -41,26 +45,33 @@
 
         <skyscraper
             v-bind:sky="item"
+            v-bind:key="item._id"
         ></skyscraper>
-
-        <section id="left" class="section left">
-
-            <presentations
-                v-bind:sky="item"
-                v-bind:presentation="item"
-            ></presentations>
-
-            <div class="card bg-none p-3">
-                <followers
-                    v-for="item in item._followers"
-                    v-bind:follow="item"
-                    v-bind:key="item._id"
-                ></followers>
-            </div>
-
-        </section>
-
+        
         <main id="main" class="main container">
+
+            <section id="left" class="section left">
+    
+                <!-- <mapas
+                    v-bind:mapa="item"
+                    v-bind:key="item._id"
+                ></mapas> -->
+
+                <presentations
+                    v-bind:presentation="item"
+                    v-bind:key="item._id"
+                ></presentations>
+    
+                <div class="card bg-none p-3">
+                    <followers
+                        v-for="item in item._followers"
+                        v-bind:follow="item"
+                        v-bind:key="item._id"
+                    ></followers>
+                </div>
+    
+            </section>
+
             <section id="mainBody" class="section mainBody">
                 <posts
                     v-for="item in item.posts"
@@ -75,71 +86,6 @@
         </main>
 
     </div>
-
-    <main id="main" class="main container" hidden>
-        <section id="left" class="section left">
-
-            <!-- <div class="card">
-                <div class="card-header">
-                    <h4>Presentación</h4>
-                    <address>
-                        <p class="address">
-                            <div class="address-title">Dirección</div>
-                            <div class="address-data">
-                                Avenida Caracas No. 72-25<br>Chapinero
-                            </div>
-                        </p>
-                        <p class="address">
-                            <div class="address-title">Teléfono</div>
-                            <div class="address-data">
-                                57 1 555 1234
-                            </div>
-                        </p>
-                        <p class="address">
-                            <div class="address-title">Móvil</div>
-                            <div class="address-data">
-                                57 300 123 4567
-                            </div>
-                        </p>
-                        <p class="address">
-                            <div class="address-title">Web</div>
-                            <div class="address-data">
-                                <a href="#" target="_blank">www.mipaginaweb.com</a>
-                            </div>
-                        </p>
-                        <p class="address">
-                            <div class="address-title">Dirección</div>
-                            <div class="address-data">
-                                Avenida Caracas No. 72-25
-                            </div>
-                        </p>
-                        <hr class="divider">
-                        <p class="address">
-                            <div class="address-data">
-                                Bogotá, Distrito Capital
-                            </div>
-                            <div class="address-title"><img src="https://res.cloudinary.com/dbszizqh4/image/upload/v1562476222/flags/co.png" alt="Colombia" class="flag"> Colombia</div>
-                        </p>
-                    </address>
-                </div>
-                <div class="card-body"></div>
-                <div class="card-footer"></div>
-            </div> -->
-
-        </section>
-        <section id="mainBody" class="section mainBody">
-
-            <!-- <div id='map'></div> -->
-
-        </section>
-        <section id="right" class="section right">
-            <div class="card bg-none">
-                <div class="card-header"></div>
-                <div class="card-body"></div>
-                <div class="card-footer"></div>
-            </div>
-        </section>
-    </main>
     
     <footer id="footer" class="footer">
         <div class="container">
@@ -204,10 +150,10 @@
                     <div class="card-footer-social"><i class="fas fa-eye"></i> {{ post.views }}</div>
                 </div>
 
-                <div class="comment-display">
+                <div class="commentDisplay">
 
                     <form action="" class="form">
-                        <input type="text" class="form-input" placeholder="Danos tu opinión..." :data-comment="post._id">
+                        <input type="text" class="form-input formComment" name="form-comment" placeholder="Danos tu opinión..." :data-comment="post._id">
                     </form>
 
                     <div
@@ -219,7 +165,7 @@
                         <div class="card-header">
                             <a :href="'/u/' + comment.userId.username + '/'">
                                 <div class="card-header-avatar">
-                                    <img :src="'https://www.gravatar.com/avatar/' + comment.userId.gravatar + '?s=64&r=pg&d=404'" :alt="'comment.userId.firstName' + comment.userId.lastName" class="avatar">
+                                    <img :src="'https://www.gravatar.com/avatar/' + comment.userId.gravatar + '?s=64&d=mp'" :alt="'comment.userId.firstName' + comment.userId.lastName" class="avatar">
                                 </div>
                             </a>
                             <div class="card-header-description">
@@ -230,8 +176,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>`
         })
 
@@ -293,41 +237,12 @@
             },
             mounted() {
                 axios
-                    // .get('https://ciudadbusca-v1.herokuapp.com/api/v1/pages/ollorente')
-                    .get('http://localhost:3001/api/v1/pages/ollorente')
+                    .get('https://ciudadbusca-v1.herokuapp.com/api/v1/pages/ollorente')
+                    // .get(`http://localhost:3001/api/v1/pages/ollorente`)
                     .then(response => (this.item = response.data.data))
             },
         })
 
-    </script>
-    <script>
-        var map = L.map('map').fitWorld();
-    
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox.streets'
-        }).addTo(map);
-    
-        function onLocationFound(e) {
-            var radius = e.accuracy / 40;
-    
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    
-            L.circle(e.latlng, radius).addTo(map);
-        }
-    
-        function onLocationError(e) {
-            alert(e.message);
-        }
-    
-        map.on('locationfound', onLocationFound);
-        map.on('locationerror', onLocationError);
-    
-        map.locate({setView: true, maxZoom: 18});
     </script>
 </body>
 </html>

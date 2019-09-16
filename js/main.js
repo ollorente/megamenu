@@ -19,3 +19,11 @@ document.querySelector('#btn-menu-barras').addEventListener('click', (e) => {
         document.querySelector('body').style.overflow = 'hidden'
     }
 })
+
+document.querySelectorAll('.formComment').forEach((elemento) => {
+    elemento.addEventListener('submit', (e) => {
+        console.log(formComment.dataset.comment)
+        document.querySelectorAll('.commentDisplay').forEach((input) => {
+        })
+    })
+})
