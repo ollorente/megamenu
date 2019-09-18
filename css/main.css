@@ -36,6 +36,7 @@
 }
 
 body {
+    width: 100vw;
     background: var(--light);
     font-family: var(--font-family-sans-serif);
     padding-top: 3.4rem;
@@ -120,8 +121,12 @@ a {
     height: 1rem;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .shadow {
-    box-shadow: 0px 4px 8px rgba(0,0,0, 0.4);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .form {
@@ -166,7 +171,13 @@ a {
 }
 
 .menu .container-buttons-menu button:hover {
-    border: 1px solid rgba(255,255,255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.menu .container-buttons-menu button span {
+    font-weight: bold;
+    margin-left: .5rem;
+    text-transform: uppercase;
 }
 
 .menu .container-buttons-menu .btn-menu-cerrar {
@@ -221,7 +232,7 @@ a {
 }
 
 .menu .btn-departamentos:hover {
-    border: 1px solid rgba(255,255,255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .menu .btn-departamentos span {
@@ -239,7 +250,7 @@ a {
 }
 
 .menu .container-enlaces-nav .enlaces a:hover {
-    border: 1px solid rgba(255,255,255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .menu .enlaces {
@@ -296,11 +307,13 @@ a {
     padding: 0;
     margin-bottom: 1rem;
 }
+
 .main .mainBody {
     grid-area: mainBody;
     padding: 0;
     margin-bottom: 1rem;
 }
+
 .main .right {
     grid-area: right;
     padding: 0;
@@ -341,7 +354,7 @@ a {
 }
 
 .card .card-header .card-header-description h2 {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .card .card-header .card-header-description h5 {
@@ -372,7 +385,8 @@ a {
     height: 100%;
     object-fit: cover;
     position: center center;
-    border: solid 1px var(--light);
+    border-top: solid 2px var(--light);
+    border-bottom: solid 2px var(--light);
 }
 
 .card-video {
@@ -381,7 +395,7 @@ a {
 
 .card-text {
     width: 100%;
-    padding: .625rem 1.25rem;
+    padding: .8rem 1.25rem;
 }
 
 .commentDisplay {
@@ -391,10 +405,11 @@ a {
 
 .card-footer {
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.25rem;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    padding: 0 2rem;
 }
 
 .card-footer .card-footer-social {
@@ -430,18 +445,139 @@ a {
 /* Puntos de quiebre */
 /* ------------------------------ */
 
-@media (min-width: 576px) {
-    
-}
+@media (min-width: 576px) {}
 
 @media (min-width: 768px) {
+    .shadow {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+        width: 100%;
+        margin: auto;
+        max-width: 960px;
+    }
+
+    .skyscraper {
+        width: 100%;
+        margin: 0 auto 1rem;
+        text-align: left;
+    }
+
+    .skyscraper .skyscraper-image {
+        max-height: 12rem;
+    }
+
+    .avatar-big {
+        width: 8rem;
+        height: 8rem;
+        margin: -4rem 0 0 1rem;
+        position: relative;
+    }
+
+    .skyscraper .skyscraper-info {
+        padding: .625rem 1.25rem;
+        margin-top: -5rem;
+        margin-left: 9rem;
+    }
+
+    .skyscraper .container {
+        width: calc(100% - 10rem);
+    }
+
+    .skyscraper .skyscraper-info h1 {
+        padding-bottom: 0.25rem;
+    }
+
+    .main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "left mainBody mainBody";
+        grid-column-gap: 1.25rem;
+        padding: 0 1.25rem;
+    }
+
+    main {
+        width: 100% !important;
+        margin: 0 auto 1rem;
+        overflow: auto;
+    }
+
+    main .uno {
+        float: left;
+        width: calc(33.33% - .5rem);
+        padding: 0 1rem;
+        overflow: auto;
+    }
     
+    main .dos {
+        float: left;
+        width: calc(66.67% - .5rem);
+        padding: 0 1rem;
+        overflow: auto;
+    }
+    
+    main .tres {
+        display: none;
+    }
+    
+    main .cuatro {
+        display: block;
+        float: left;
+        width: 100%;
+        padding: 1rem;
+        overflow: auto;
+        background: #17a2b8;
+    }
+
+    .left {
+        width: 100%;
+        background: #78b5f7;
+    }
+
+    .mainBody {
+        width: 100%;
+        background: #20c997;
+    }
+
+    .card-footer {
+        justify-content: flex-start;
+        padding: 0;
+    }
 }
 
 @media (min-width: 992px) {
+    main, .container {
+        max-width: 960px;
+    }
+
+    main .uno {
+        float: left;
+        width: calc(25% - .5rem);
+        padding: 0 1rem;
+        overflow: auto;
+    }
     
+    main .dos {
+        float: left;
+        width: calc(50% - .5rem);
+        padding: 0 1rem;
+        overflow: auto;
+    }
+    
+    main .tres {
+        display: block;
+        float: left;
+        width: calc(25% - .5rem);
+        padding: 1rem;
+        overflow: auto;
+        background: #17a2b8;
+    }
+    
+    main .cuatro {
+        display: none;
+    }
 }
 
-@media (min-width: 1200px) {
-    
-}
+@media (min-width: 1200px) {}
